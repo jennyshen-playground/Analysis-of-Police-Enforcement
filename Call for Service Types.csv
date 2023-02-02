@@ -1,0 +1,177 @@
+_id,Type_of_Incident,Call_for_Service_Type,Perceived_Race_of_People_Involv,Incident_Count,ObjectId
+1, Enforcement Action Incidents,IN PROGRESS/JUST OCC'D,Latino ,68.0,1
+2, Enforcement Action Incidents,IN PROGRESS/JUST OCC'D,Middle Eastern ,102.0,2
+3, Enforcement Action Incidents,IN PROGRESS/JUST OCC'D,South Asian ,102.0,3
+4, Enforcement Action Incidents,IN PROGRESS/JUST OCC'D,White ,1585.0,4
+5, Enforcement Action Incidents,IN PROGRESS/JUST OCC'D,Multiple race group,297.0,5
+6,Reported Use of Force Incidents,PERSON IN CRISIS,Black ,17.0,6
+7,Reported Use of Force Incidents,PERSON IN CRISIS,East/Southeast Asian ,5.0,7
+8,Reported Use of Force Incidents,PERSON IN CRISIS,Indigenous ,2.0,8
+9,Reported Use of Force Incidents,PERSON IN CRISIS,Latino ,,9
+10,Reported Use of Force Incidents,PERSON IN CRISIS,Middle Eastern ,3.0,10
+11,Reported Use of Force Incidents,PERSON IN CRISIS,South Asian ,3.0,11
+12,Reported Use of Force Incidents,PERSON IN CRISIS,White ,24.0,12
+13,Reported Use of Force Incidents,PERSON IN CRISIS,Multiple race group,5.0,13
+14, Enforcement Action Incidents,PERSON IN CRISIS,Black ,1538.0,14
+15, Enforcement Action Incidents,PERSON IN CRISIS,East/Southeast Asian ,856.0,15
+16, Enforcement Action Incidents,PERSON IN CRISIS,Indigenous ,253.0,16
+17, Enforcement Action Incidents,PERSON IN CRISIS,Latino ,203.0,17
+18, Enforcement Action Incidents,PERSON IN CRISIS,Middle Eastern ,547.0,18
+19, Enforcement Action Incidents,PERSON IN CRISIS,South Asian ,621.0,19
+20, Enforcement Action Incidents,PERSON IN CRISIS,White ,5411.0,20
+21, Enforcement Action Incidents,PERSON IN CRISIS,Multiple race group,706.0,21
+22,Reported Use of Force Incidents,OTHER PRIORITY 2,Black ,17.0,22
+23,Reported Use of Force Incidents,OTHER PRIORITY 2,East/Southeast Asian ,3.0,23
+24,Reported Use of Force Incidents,OTHER PRIORITY 2,Indigenous ,,24
+25,Reported Use of Force Incidents,OTHER PRIORITY 2,Latino ,2.0,25
+26,Reported Use of Force Incidents,OTHER PRIORITY 2,Middle Eastern ,,26
+27,Reported Use of Force Incidents,OTHER PRIORITY 2,South Asian ,4.0,27
+28,Reported Use of Force Incidents,OTHER PRIORITY 2,White ,23.0,28
+29,Reported Use of Force Incidents,OTHER PRIORITY 2,Multiple race group,7.0,29
+30, Enforcement Action Incidents,OTHER PRIORITY 2,Black ,1363.0,30
+31, Enforcement Action Incidents,OTHER PRIORITY 2,East/Southeast Asian ,440.0,31
+32, Enforcement Action Incidents,OTHER PRIORITY 2,Indigenous ,165.0,32
+33, Enforcement Action Incidents,OTHER PRIORITY 2,Latino ,143.0,33
+34, Enforcement Action Incidents,OTHER PRIORITY 2,Middle Eastern ,334.0,34
+35, Enforcement Action Incidents,OTHER PRIORITY 2,South Asian ,340.0,35
+36, Enforcement Action Incidents,OTHER PRIORITY 2,White ,3080.0,36
+37, Enforcement Action Incidents,OTHER PRIORITY 2,Multiple race group,838.0,37
+38,Reported Use of Force Incidents,OTHER PRIORITY 4,Black ,17.0,38
+39,Reported Use of Force Incidents,OTHER PRIORITY 4,East/Southeast Asian ,2.0,39
+40,Reported Use of Force Incidents,OTHER PRIORITY 4,Indigenous ,1.0,40
+41,Reported Use of Force Incidents,OTHER PRIORITY 4,Latino ,,41
+42,Reported Use of Force Incidents,OTHER PRIORITY 4,Middle Eastern ,3.0,42
+43,Reported Use of Force Incidents,OTHER PRIORITY 4,South Asian ,2.0,43
+44,Reported Use of Force Incidents,OTHER PRIORITY 4,White ,28.0,44
+45,Reported Use of Force Incidents,OTHER PRIORITY 4,Multiple race group,13.0,45
+46, Enforcement Action Incidents,OTHER PRIORITY 4,Black ,1760.0,46
+47, Enforcement Action Incidents,OTHER PRIORITY 4,East/Southeast Asian ,438.0,47
+48, Enforcement Action Incidents,OTHER PRIORITY 4,Indigenous ,235.0,48
+49, Enforcement Action Incidents,OTHER PRIORITY 4,Latino ,166.0,49
+50, Enforcement Action Incidents,OTHER PRIORITY 4,Middle Eastern ,305.0,50
+51, Enforcement Action Incidents,OTHER PRIORITY 4,South Asian ,378.0,51
+52, Enforcement Action Incidents,OTHER PRIORITY 4,White ,3861.0,52
+53, Enforcement Action Incidents,OTHER PRIORITY 4,Multiple race group,1407.0,53
+54,Reported Use of Force Incidents,OTHER PRIORITY 6,Black ,6.0,54
+55,Reported Use of Force Incidents,OTHER PRIORITY 6,East/Southeast Asian ,1.0,55
+56,Reported Use of Force Incidents,OTHER PRIORITY 6,Indigenous ,,56
+57,Reported Use of Force Incidents,OTHER PRIORITY 6,Latino ,,57
+58,Reported Use of Force Incidents,OTHER PRIORITY 6,Middle Eastern ,2.0,58
+59,Reported Use of Force Incidents,OTHER PRIORITY 6,South Asian ,1.0,59
+60,Reported Use of Force Incidents,ADMIN,Black ,9.0,60
+61,Reported Use of Force Incidents,ADMIN,East/Southeast Asian ,1.0,61
+62,Reported Use of Force Incidents,ADMIN,Indigenous ,,62
+63,Reported Use of Force Incidents,ADMIN,Latino ,,63
+64,Reported Use of Force Incidents,ADMIN,Middle Eastern ,,64
+65,Reported Use of Force Incidents,ADMIN,South Asian ,1.0,65
+66,Reported Use of Force Incidents,ADMIN,White ,6.0,66
+67,Reported Use of Force Incidents,ADMIN,Multiple race group,4.0,67
+68, Enforcement Action Incidents,ADMIN,Black ,1940.0,68
+69, Enforcement Action Incidents,ADMIN,East/Southeast Asian ,208.0,69
+70, Enforcement Action Incidents,ADMIN,Indigenous ,147.0,70
+71, Enforcement Action Incidents,ADMIN,Latino ,83.0,71
+72, Enforcement Action Incidents,ADMIN,Middle Eastern ,180.0,72
+73, Enforcement Action Incidents,ADMIN,South Asian ,163.0,73
+74, Enforcement Action Incidents,ADMIN,White ,2199.0,74
+75, Enforcement Action Incidents,ADMIN,Multiple race group,1283.0,75
+76,Reported Use of Force Incidents,ARREST,Black ,13.0,76
+77,Reported Use of Force Incidents,ARREST,East/Southeast Asian ,,77
+78,Reported Use of Force Incidents,ARREST,Indigenous ,,78
+79,Reported Use of Force Incidents,ARREST,Latino ,,79
+80,Reported Use of Force Incidents,ARREST,Middle Eastern ,2.0,80
+81,Reported Use of Force Incidents,ARREST,South Asian ,1.0,81
+82,Reported Use of Force Incidents,ARREST,White ,3.0,82
+83,Reported Use of Force Incidents,ARREST,Multiple race group,5.0,83
+84, Enforcement Action Incidents,ARREST,Black ,1286.0,84
+85, Enforcement Action Incidents,ARREST,East/Southeast Asian ,365.0,85
+86, Enforcement Action Incidents,ARREST,Indigenous ,183.0,86
+87, Enforcement Action Incidents,ARREST,Latino ,136.0,87
+88, Enforcement Action Incidents,ARREST,Middle Eastern ,251.0,88
+89, Enforcement Action Incidents,ARREST,South Asian ,313.0,89
+90, Enforcement Action Incidents,ARREST,White ,2605.0,90
+91, Enforcement Action Incidents,ARREST,Multiple race group,624.0,91
+92,Reported Use of Force Incidents,DOMESTIC/ASSAULT,Black ,10.0,92
+93,Reported Use of Force Incidents,DOMESTIC/ASSAULT,East/Southeast Asian ,,93
+94,Reported Use of Force Incidents,DOMESTIC/ASSAULT,Indigenous ,,94
+95,Reported Use of Force Incidents,DOMESTIC/ASSAULT,Latino ,2.0,95
+96,Reported Use of Force Incidents,DOMESTIC/ASSAULT,Middle Eastern ,2.0,96
+97,Reported Use of Force Incidents,DOMESTIC/ASSAULT,South Asian ,2.0,97
+98,Reported Use of Force Incidents,DOMESTIC/ASSAULT,White ,10.0,98
+99,Reported Use of Force Incidents,DOMESTIC/ASSAULT,Multiple race group,1.0,99
+100, Enforcement Action Incidents,DOMESTIC/ASSAULT,Black ,1997.0,100
+101, Enforcement Action Incidents,DOMESTIC/ASSAULT,East/Southeast Asian ,799.0,101
+102, Enforcement Action Incidents,DOMESTIC/ASSAULT,Indigenous ,147.0,102
+103, Enforcement Action Incidents,DOMESTIC/ASSAULT,Latino ,408.0,103
+104, Enforcement Action Incidents,DOMESTIC/ASSAULT,Middle Eastern ,537.0,104
+105, Enforcement Action Incidents,DOMESTIC/ASSAULT,South Asian ,656.0,105
+106, Enforcement Action Incidents,DOMESTIC/ASSAULT,White ,3105.0,106
+107, Enforcement Action Incidents,DOMESTIC/ASSAULT,Multiple race group,1524.0,107
+108,Reported Use of Force Incidents,IN PROGRESS/JUST OCC'D,Black ,14.0,108
+109,Reported Use of Force Incidents,IN PROGRESS/JUST OCC'D,East/Southeast Asian ,5.0,109
+110,Reported Use of Force Incidents,IN PROGRESS/JUST OCC'D,Indigenous ,4.0,110
+111,Reported Use of Force Incidents,IN PROGRESS/JUST OCC'D,Latino ,,111
+112,Reported Use of Force Incidents,IN PROGRESS/JUST OCC'D,Middle Eastern ,1.0,112
+113,Reported Use of Force Incidents,IN PROGRESS/JUST OCC'D,South Asian ,3.0,113
+114,Reported Use of Force Incidents,IN PROGRESS/JUST OCC'D,White ,40.0,114
+115,Reported Use of Force Incidents,IN PROGRESS/JUST OCC'D,Multiple race group,8.0,115
+116, Enforcement Action Incidents,IN PROGRESS/JUST OCC'D,Black ,748.0,116
+117, Enforcement Action Incidents,IN PROGRESS/JUST OCC'D,East/Southeast Asian ,132.0,117
+118, Enforcement Action Incidents,IN PROGRESS/JUST OCC'D,Indigenous ,158.0,118
+119,Reported Use of Force Incidents,OTHER PRIORITY 6,White ,1.0,119
+120,Reported Use of Force Incidents,OTHER PRIORITY 6,Multiple race group,3.0,120
+121, Enforcement Action Incidents,OTHER PRIORITY 6,Black ,941.0,121
+122, Enforcement Action Incidents,OTHER PRIORITY 6,East/Southeast Asian ,270.0,122
+123, Enforcement Action Incidents,OTHER PRIORITY 6,Indigenous ,60.0,123
+124, Enforcement Action Incidents,OTHER PRIORITY 6,Latino ,91.0,124
+125, Enforcement Action Incidents,OTHER PRIORITY 6,Middle Eastern ,236.0,125
+126, Enforcement Action Incidents,OTHER PRIORITY 6,South Asian ,194.0,126
+127, Enforcement Action Incidents,OTHER PRIORITY 6,White ,2088.0,127
+128, Enforcement Action Incidents,OTHER PRIORITY 6,Multiple race group,1685.0,128
+129,Reported Use of Force Incidents,PROACTIVE,Black ,29.0,129
+130,Reported Use of Force Incidents,PROACTIVE,East/Southeast Asian ,3.0,130
+131,Reported Use of Force Incidents,PROACTIVE,Indigenous ,,131
+132,Reported Use of Force Incidents,PROACTIVE,Latino ,,132
+133,Reported Use of Force Incidents,PROACTIVE,Middle Eastern ,2.0,133
+134,Reported Use of Force Incidents,PROACTIVE,South Asian ,5.0,134
+135,Reported Use of Force Incidents,PROACTIVE,White ,8.0,135
+136,Reported Use of Force Incidents,PROACTIVE,Multiple race group,21.0,136
+137, Enforcement Action Incidents,PROACTIVE,Black ,2334.0,137
+138, Enforcement Action Incidents,PROACTIVE,East/Southeast Asian ,686.0,138
+139, Enforcement Action Incidents,PROACTIVE,Indigenous ,89.0,139
+140, Enforcement Action Incidents,PROACTIVE,Latino ,183.0,140
+141, Enforcement Action Incidents,PROACTIVE,Middle Eastern ,447.0,141
+142, Enforcement Action Incidents,PROACTIVE,South Asian ,534.0,142
+143, Enforcement Action Incidents,PROACTIVE,White ,2789.0,143
+144, Enforcement Action Incidents,PROACTIVE,Multiple race group,1155.0,144
+145,Reported Use of Force Incidents,VEHICLE RELATED,Black ,9.0,145
+146,Reported Use of Force Incidents,VEHICLE RELATED,East/Southeast Asian ,7.0,146
+147,Reported Use of Force Incidents,VEHICLE RELATED,Indigenous ,,147
+148,Reported Use of Force Incidents,VEHICLE RELATED,Latino ,,148
+149,Reported Use of Force Incidents,VEHICLE RELATED,Middle Eastern ,,149
+150,Reported Use of Force Incidents,VEHICLE RELATED,South Asian ,2.0,150
+151,Reported Use of Force Incidents,VEHICLE RELATED,White ,13.0,151
+152,Reported Use of Force Incidents,VEHICLE RELATED,Multiple race group,7.0,152
+153, Enforcement Action Incidents,VEHICLE RELATED,Black ,408.0,153
+154, Enforcement Action Incidents,VEHICLE RELATED,East/Southeast Asian ,195.0,154
+155, Enforcement Action Incidents,VEHICLE RELATED,Indigenous ,16.0,155
+156, Enforcement Action Incidents,VEHICLE RELATED,Latino ,53.0,156
+157, Enforcement Action Incidents,VEHICLE RELATED,Middle Eastern ,126.0,157
+158, Enforcement Action Incidents,VEHICLE RELATED,South Asian ,189.0,158
+159, Enforcement Action Incidents,VEHICLE RELATED,White ,704.0,159
+160, Enforcement Action Incidents,VEHICLE RELATED,Multiple race group,413.0,160
+161,Reported Use of Force Incidents,VIOLENT CALLS FOR SERVICE,Black ,137.0,161
+162,Reported Use of Force Incidents,VIOLENT CALLS FOR SERVICE,East/Southeast Asian ,16.0,162
+163,Reported Use of Force Incidents,VIOLENT CALLS FOR SERVICE,Indigenous ,15.0,163
+164,Reported Use of Force Incidents,VIOLENT CALLS FOR SERVICE,Latino ,10.0,164
+165,Reported Use of Force Incidents,VIOLENT CALLS FOR SERVICE,Middle Eastern ,13.0,165
+166,Reported Use of Force Incidents,VIOLENT CALLS FOR SERVICE,South Asian ,20.0,166
+167,Reported Use of Force Incidents,VIOLENT CALLS FOR SERVICE,White ,131.0,167
+168,Reported Use of Force Incidents,VIOLENT CALLS FOR SERVICE,Multiple race group,78.0,168
+169, Enforcement Action Incidents,VIOLENT CALLS FOR SERVICE,Black ,3316.0,169
+170, Enforcement Action Incidents,VIOLENT CALLS FOR SERVICE,East/Southeast Asian ,810.0,170
+171, Enforcement Action Incidents,VIOLENT CALLS FOR SERVICE,Indigenous ,307.0,171
+172, Enforcement Action Incidents,VIOLENT CALLS FOR SERVICE,Latino ,312.0,172
+173, Enforcement Action Incidents,VIOLENT CALLS FOR SERVICE,Middle Eastern ,602.0,173
+174, Enforcement Action Incidents,VIOLENT CALLS FOR SERVICE,South Asian ,622.0,174
+175, Enforcement Action Incidents,VIOLENT CALLS FOR SERVICE,White ,4576.0,175
+176, Enforcement Action Incidents,VIOLENT CALLS FOR SERVICE,Multiple race group,1919.0,176
