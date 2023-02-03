@@ -1,0 +1,225 @@
+---
+title: "Analysis of Police Enforcement"
+author: "Jenny Shen"
+thanks: "Code  and data are available at https://github.com/jennyshen-playground/Analysis-of-Police-Enforcement"
+date: 'February 3, 2022'
+date-format: "D MMM YYYY"
+format: pdf
+abstract: "Police Enforcement is a vital part of crime prevention that is a key component of community mobilization and keeps the peace among the community partnerships. While police enforcement is a safe measurement for ensuring a safe community, racial profiling may occur in police interactions with racialized communities. We investigate the Use of Force Reports and occurrences that resulted in an enforcement action in relation to perceived race, which will be analyzed in this paper with the use of figures and graphs. The data show that there is a relationship between perceived race and the use of force and enforcement action incidents. While metrics are useful tools for guiding improvements in racial profiling, the Data cannot accurately reflect the holistic value of the table. "
+editor: visual
+bibliography: bibliography.bib
+---
+
+## 1. Introduction
+
+The Toronto Police Service is a municipal police force in Toronto, who's committed to delivering effective police services that are responsive to the needs of individuals and the community. With the ongoing effort to maintain public safety and order, the force employs a combination of police enforcement and community partnership which has been successful in reducing the crime rate.  Despite overall success in reducing crime, including a low rate of homicides, in recent years, the Toronto police have faced immense criticism over allegations of misconduct and reports of disproportionate use of force against people of colour. In fact, people of colour were 1.2 to 1.6 times more likely to face violence when interacting with Toronto police in 2020 \[\@\]. The overwhelming use of force incidents involving Toronto police prompted Chief James Ramer to issue a public apology for the "systematic discrimination." However, there has been a limited amount of research to offer an in-depth examination regarding the reasons for race to affect the use of force, and how the reportable incidents resulting in the use of force disproportionately affects people of colour.
+
+Collecting and analyzing race-based data on police use of force can shed light on any potential racial inequities in policing. This data may then be used to direct efforts to address and minimize inequities in law enforcement policies and procedures. This data may then be used to direct efforts to address and minimize inequities in law enforcement policies and procedures. The mandate that police officers file a report following each use-of-force event is also a step in the right direction since it allows for the tracking and analysis of police use of force, including any potential racial biases. However, it is imperative to emphasize that collecting and analyzing this data is only the initial step in tackling racial disparities in policing; sustained efforts and improvements are necessary for substantive and long-term change.
+
+In this report, we will analyze Police enforcement, and in particular the use of force to account for any potential racial biases, and examine the common patterns of the use of force in certain racial groups. We will begin by first looking into how the type of force is used in relation to the count of incidents. In addition, I will look for relationships between the type of force used and the Officer's perception of individuals involved in the incident. Finally, we will examine some of the counts of reported incidents and the respective racial groups to take into account how the use of force by police can impact the incident count of perceived race of people.
+
+## 2. Data Source
+
+This report utilizes data from the provincial Use of Force Reports and occurrences that resulted in an enforcement action titled "Police Race and Identity-based Data & Use of Force" obtained from the Toronto Police Service Annual Statistical Report (ASR) (Toronto Police Service 2020b). The reported use of force or enforcement action incidents analyzed in this report was obtained in csv format from the City of Toronto Open Data Portal using the R package `opendatatoronto` [@citesharla]. The dataset was last updated on December 2nd, 2022.  The dataset provides information on the use of force by the Toronto Police Service (TPS) and includes data on the race and identity of individuals involved in incidents when the TPS officers used force. However, it's important to note that the dataset may have a bias in classifying incidents that led to a police enforcement action. This is because the dataset counts unique occurrences and doesn't take into account the number of individuals involved in a group setting. Additionally, it's likely that the data was collected through reports made by police officers as the victim's racialized group cannot be confirmed unless they have been arrested. We are interested in finding the trend of enforcement action incidents and the reported use of force incident count based on the perceived race of the individual involved. 
+
+The Police Race and Identity-based Data & Use of Force dataset comprises seven csv files that are organized into grouped cells, each describing the column labels. The primary dataset we are interested in is Call for Service Types.To produce the summary data, two datasets were combined: enforcement actions and reported use of force incidents. The raw data includes 176 observations of unique occurrences which resulted in a police enforcement action or incidents of reported use of force, type of call for police service that results in an enforcement action, Officer's perception of individuals involved in the incident, and the number of incidents counted by the racial group within the year. 
+
+The analysis will be carried out using the statistical programming language R [@citeR], using the `dplyr` [@citedplyr], `knitr` (Xie 2021b), and `tidyverse` [@tidyverse] packages. All figures in the report are generated using `ggplot2` [@citeggplot], and tables are created with `kableExtra` [@citekable]. We cleaned the data as followed:
+
+-   Excluding column -- "ObjectID" and "Call_for_Service_Type" they do not affect the result or need to be analyzed in this data.
+
+-   Removing "NA" from "Incident_Count" column.
+
+-   Make two separate tables for each type of incident: 1)Enforcement Actions and 2)Reported use of force incidents.
+
+-   Combine the incident count and sum up each perceived race according to each type of incident.
+
+The result was saved as clean_enforcement_data and clean_reported_data within analysis-of-police-enforcement.Rmd. Exploratory analysis revealed intriguing results when the data was segmented by perceived race, which can be further examined through the tables and graphs.
+
+```{r}
+#| echo: false
+#| warning: false
+
+library(opendatatoronto)
+library(dplyr)
+library(tidyverse)
+library(lubridate)
+library(knitr)
+
+# get package
+package <- show_package("police-race-and-identity-based-data-use-of-force")
+
+# get all resources for this package
+resources <- list_package_resources("police-race-and-identity-based-data-use-of-force")
+```
+
+```{r}
+#| echo: false
+#| warning: false
+
+# Import required libraries
+library(dplyr)
+library(here)
+
+# Load the data
+data <-
+ read_csv(here::here("/inputs/data/Call for Service Types.csv", show_col_types = FALSE))
+
+# Clean the data
+cleaned_enforcement_data <- data |>
+  # Remove rows with missing values in the Incident_Count column
+  drop_na(Incident_Count) |>
+  # Filter the data to include only enforcement action incidents
+  filter(Type_of_Incident == "Enforcement Action Incidents") |>
+  # Select only the columns of interest
+  select(Type_of_Incident, 
+         Perceived_Race_of_People_Involv, 
+         Incident_Count
+         )
+
+# Clean the data
+cleaned_reported_data <- data |>
+  # Remove rows with missing values in the Incident_Count column
+  drop_na(Incident_Count) |>
+  # Filter the data to include only reported use of force incidents
+  filter(Type_of_Incident == "Reported Use of Force Incidents") |>
+  # Select only the columns of interest
+  select(Type_of_Incident, Perceived_Race_of_People_Involv, Incident_Count)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-enforcement
+#| tbl-cap: "Total Number of Incidents Involving Enforcement Actions"
+
+library(kableExtra)
+
+# Group `cleaned_enforcement_data` by the `Perceived_Race_of_People_Involv` column
+cleaned_enforcement_data |>
+  group_by(Perceived_Race_of_People_Involv) |>
+
+# Summarize the data in `grouped_by_race` by summing the `Incident_Count` column
+  summarize(total_count = sum(Incident_Count)) |>
+
+# Create a table from the `summarized_data` data frame and format it with kable
+  kable(
+    col.names = c(
+     "Perceived Race" ,
+     "Incident Count"
+    ),
+    digits = 0,
+    booktabs = "TRUE",
+    linesep = ""
+  )|>
+  kable_styling(latex_options = "HOLD_position")
+```
+
+@tbl-enforcement shows the total number of incidents involving enforcement actions for each perceived race in 2020. The first column of the data includes racial breakdown of eight categories: Black, East or Southeast Asian, Indigenous, Latino, Middle Eastern, Multiple race group, South Asian, and White. Note, if the incident involves multiple individuals with differing perceived races or gender groups, it is classified as a "multiple race group." The second column provides the number of incidents for each race group, which varies from a few thousand to ten thousand unique occurrences. This data provides a basis for comparison with the reported use of force data, which is shown in @tbl-jenny.
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-jenny
+#| tbl-cap: "Total Number of Incidents Involving Reported Use of Force"
+
+# This code processes the `cleaned_reported_data` data frame and creates a summary table 
+# showing the total count of incidents by perceived race of the people involved.
+
+# Group `cleaned_reported_data` by the `Perceived_Race_of_People_Involv` column
+cleaned_reported_data |>
+  group_by(Perceived_Race_of_People_Involv) |>
+  
+# Summarize the data in `grouped_by_race` by summing the `Incident_Count` column
+  summarize(total_count = sum(Incident_Count)) |>
+
+# Create a table from the `summarized_data` data frame and format it with kable
+  kable(
+    col.names = c(
+     "Perceived Race" ,
+     "Incident Count"
+    ),
+    digits = 0,
+    booktabs = "TRUE",
+    linesep = ""
+  ) |>
+  kable_styling(latex_options = "HOLD_position")
+```
+
+@tbl-jenny presents the count of incidents in which reported use of force was involved, based on the perceived race of the individuals involved in 2020. The data encompasses eight different races, including Black, East or Southeast Asian, Indigenous, Latino, Middle Eastern, Multiple race groups, South Asian, and White, each presented in the first column. The second column shows the number of incidents per race group, which differs among the groups. Further analysis can be done by observing bar graph comparisons.
+
+When comparing the data in @tbl-enforcement and @tbl-jenny, we can observe that enforcement action incidents exhibit a notably higher number of unique occurrences than incidents involving reported use of force. This disparity can be attributed to the broader scope of enforcement actions, which encompass arrests and diversions and tickets and individuals classified as suspects or subjects in occurrence records. Conversely, force use only occurs during a direct encounter with an officer. We can also observe that although the two types of incidents vary in number of incidents, certain perceived groups are over represented in uses of force. We will also draw close attention to the comparison between the groups by creating a bar plot to see the trend by each perceived race.
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-align: center
+#| label: fig-enforcement
+#| fig-cap: "Total Number of Incidents Involving Enforcement Action with Racialized Breakdown"
+
+# Load the ggplot2 library
+library(ggplot2)
+
+# Set the color palette for the fill color of the bar chart
+discrete_scale <- scale_fill_brewer(palette = "Set3")
+
+# Create the bar chart with ggplot2
+ggplot(
+  cleaned_enforcement_data, 
+  mapping = aes(x = Perceived_Race_of_People_Involv, y = Incident_Count, fill = Perceived_Race_of_People_Involv), 
+  width = 14, 
+  height = 6
+) + 
+ geom_bar(stat = "identity") +
+  # Add labels for the title, x-axis, and y-axis
+  labs(
+    title = "Total Number of Incidents Involving Enforcement Action with Racialized Breakdown",
+    x = "Perceived Race",
+    y = "Incident Count",
+  ) +
+  # Apply the classic theme to the plot
+  theme_classic() + 
+  # Adjust the angle of the x-axis text and change the font size
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), 
+    text = element_text(size = 8)
+  )
+```
+
+@fig-enforcement represents the number of enforcement action incidents recorded in 2020 for each perceived race. The graph shows that the number of incidents for White and Black individuals is the highest among the eight racial categories in general. The number of incidents for Indigenous, East/Southeast Asian  We want to examine whether disproportionate use of force against people of colour, and from this graph. This helps us see to what extent a group may be over or under-represented in uses of force.
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-align: center
+#| label: fig-reported
+
+# Load the ggplot2 library
+library(ggplot2)
+
+# Create a discrete color scale using the Set3 color palette
+  discrete_scale <- scale_fill_brewer(palette = "Paired")
+
+# Create a bar plot of "Incident_Count" by "Perceived_Race_of_People_Involv"
+# using the filled color for the bars
+ggplot(cleaned_reported_data, mapping = aes(x = Perceived_Race_of_People_Involv, y = Incident_Count, fill = Perceived_Race_of_People_Involv), width = 20, height = 10) + 
+  geom_bar(stat = "identity") +
+  labs(
+    title = "Total Number of Incidents Involving Use of Force with Racialized Breakdown",
+    x = "Perceived Race",
+    y = "Incident Count",
+  ) +
+# Apply the classic ggplot theme
+  theme_classic() + 
+
+# Rotate the x-axis labels by 45 degrees
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), text = element_text(size = 8))
+```
+
+@fig-reported illustrates the demographics of those involved in the enforcement of incidents in 2020. We want to examine whether disproportionate use of force against people of colour, and from this graph. The graph shows the comparison of racial breakdown, and one observation we can make is that  white individuals have significantly higher involvement compared to other groups. 
+
+We want to examine whether disproportionate use of force against people of colour, and from this graph. In comparison with @fig-enforcement, we can see that Black, East/Southeast Asian, Middle Eastern, and Latino people were over-represented in use of force incidents compared to their presence in reported action. Another trend we discovered characterised East/Southeast Asian and Latino people's contacts with police, in which they were under-represented in coming into contact with police but over-represented in use of force once they did.
+
+Overall, the two datasets suggest a relationship between perceived race and the use of force. The relationship between perceived race and use of force or enforcement action occurrences has been demonstrated employing our data. It is clear that the two major groups of persons engaged in the use of force event were believed to be Black and White, which may be overrepresented in the use of force. As a result, further study on racial biases is needed to reduce and ameliorate inequities that these groups may face as a result of choices to use force and the circumstances surrounding them.
+
+## Reference
