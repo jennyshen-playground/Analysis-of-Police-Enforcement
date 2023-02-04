@@ -5,16 +5,16 @@ thanks: "Code  and data are available at https://github.com/jennyshen-playground
 date: 'February 3, 2022'
 date-format: "D MMM YYYY"
 format: pdf
-abstract: "Police Enforcement is a vital part of crime prevention that is a key component of community mobilization and keeps the peace among the community partnerships. While police enforcement is a safe measurement for ensuring a safe community, racial profiling may occur in police interactions with racialized communities. We investigate the Use of Force Reports and occurrences that resulted in an enforcement action in relation to perceived race, which will be analyzed in this paper with the use of figures and graphs. The data show that there is a relationship between perceived race and the use of force and enforcement action incidents. While metrics are useful tools for guiding improvements in racial profiling, the Data cannot accurately reflect the holistic value of the table. "
+abstract: "Police Enforcement is a vital part of crime prevention that is a key component of community mobilization and keeps the peace among the community partnerships. While police enforcement is a safe measurement for ensuring a safe community, racial profiling may occur in police interactions with racialized communities. We investigate the Use of Force Reports and occurrences that resulted in an enforcement action in relation to perceived race, which will be analyzed in this paper with the use of figures and graphs. The data show that there is a relationship between perceived race and the use of force and enforcement action incidents."
 editor: visual
 bibliography: bibliography.bib
 ---
 
 ## 1. Introduction
 
-The Toronto Police Service is a municipal police force in Toronto, who's committed to delivering effective police services that are responsive to the needs of individuals and the community. With the ongoing effort to maintain public safety and order, the force employs a combination of police enforcement and community partnership which has been successful in reducing the crime rate.  Despite overall success in reducing crime, including a low rate of homicides, in recent years, the Toronto police have faced immense criticism over allegations of misconduct and reports of disproportionate use of force against people of colour. In fact, people of colour were 1.2 to 1.6 times more likely to face violence when interacting with Toronto police in 2020 \[\@\]. The overwhelming use of force incidents involving Toronto police prompted Chief James Ramer to issue a public apology for the "systematic discrimination." However, there has been a limited amount of research to offer an in-depth examination regarding the reasons for race to affect the use of force, and how the reportable incidents resulting in the use of force disproportionately affects people of colour.
+The Toronto Police Service is a municipal police force in Toronto, who's committed to delivering effective police services that are responsive to the needs of individuals and the community. With the ongoing effort to maintain public safety and order, the force employs a combination of police enforcement and community partnership which has been successful in reducing the crime rate. Despite overall success in reducing crime, including a low rate of homicides, in recent years, the Toronto police have faced immense criticism over allegations of misconduct and reports of disproportionate use of force against people of colour. In fact, people of colour were 1.2 to 1.6 times more likely to face violence when interacting with Toronto police in 2020 [@citectv]. The overwhelming use of force incidents involving Toronto police prompted Chief James Ramer to issue a public apology for the "systematic discrimination" [@citectv]. However, there has been a limited amount of research to offer an in-depth examination regarding the reasons for race to affect the use of force, and how the reportable incidents resulting in the use of force disproportionately affects people of colour.
 
-Collecting and analyzing race-based data on police use of force can shed light on any potential racial inequities in policing. This data may then be used to direct efforts to address and minimize inequities in law enforcement policies and procedures. This data may then be used to direct efforts to address and minimize inequities in law enforcement policies and procedures. The mandate that police officers file a report following each use-of-force event is also a step in the right direction since it allows for the tracking and analysis of police use of force, including any potential racial biases. However, it is imperative to emphasize that collecting and analyzing this data is only the initial step in tackling racial disparities in policing; sustained efforts and improvements are necessary for substantive and long-term change.
+Collecting and analyzing race-based data on police use of force can shed light on any potential racial inequities in policing. This data may then be used to direct efforts to address and minimize inequities in law enforcement policies and procedures. This data may then be used to direct efforts to address and minimize inequities in law enforcement policies and procedures. The mandate that police officers file a report following each use-of-force event is also a step in the right direction since it allows for the tracking and analysis of police use of force, including any potential racial biases [@citetps]. However, it is imperative to emphasize that collecting and analyzing this data is only the initial step in tackling racial disparities in policing; sustained efforts and improvements are necessary for substantive and long-term change.
 
 In this report, we will analyze Police enforcement, and in particular the use of force to account for any potential racial biases, and examine the common patterns of the use of force in certain racial groups. We will begin by first looking into how the type of force is used in relation to the count of incidents. In addition, I will look for relationships between the type of force used and the Officer's perception of individuals involved in the incident. Finally, we will examine some of the counts of reported incidents and the respective racial groups to take into account how the use of force by police can impact the incident count of perceived race of people.
 
@@ -43,7 +43,6 @@ The result was saved as clean_enforcement_data and clean_reported_data within an
 library(opendatatoronto)
 library(dplyr)
 library(tidyverse)
-library(lubridate)
 library(knitr)
 
 # get package
@@ -57,13 +56,23 @@ resources <- list_package_resources("police-race-and-identity-based-data-use-of-
 #| echo: false
 #| warning: false
 
+# Old file path
+old_file_path <- file.path("/outputs/paper/analysis_of_police_enforcement", "raw_data.csv")
+
+# New file path
+new_file_path <- file.path(here::here("analysis_of_police_enforcement/inputs/data"), "raw_data.csv")
+```
+
+```{r}
+#| echo: false
+#| warning: false
+
 # Import required libraries
 library(dplyr)
-library(haven)
+library(readr)
+library(dplyr)
 
-# Load the data
-data <-
- readr::read_csv("analysis_of_police_enforcement/inputs/data/Call for Service Types.csv", show_col_types = FALSE)
+data <- read_csv(here::here("inputs/data/raw_data.csv"), show_col_types = FALSE)
 
 # Clean the data
 cleaned_enforcement_data <- data |>
@@ -87,11 +96,13 @@ cleaned_reported_data <- data |>
   select(Type_of_Incident, Perceived_Race_of_People_Involv, Incident_Count)
 ```
 
+\`
+
 ```{r}
 #| echo: false
 #| warning: false
 #| label: tbl-enforcement
-#| tbl-cap: "Total Number of Incidents Involving Enforcement Actions"
+#| tbl-cap: "Observation from Enforcement Action Incidents occurance in Toronto"
 
 library(kableExtra)
 
@@ -121,7 +132,7 @@ cleaned_enforcement_data |>
 #| echo: false
 #| warning: false
 #| label: tbl-jenny
-#| tbl-cap: "Total Number of Incidents Involving Reported Use of Force"
+#| tbl-cap: "Observation from Reported Use of Force Incidents occurance in Toronto"
 
 # This code processes the `cleaned_reported_data` data frame and creates a summary table 
 # showing the total count of incidents by perceived race of the people involved.
@@ -155,8 +166,9 @@ When comparing the data in @tbl-enforcement and @tbl-jenny, we can observe that 
 #| warning: false
 #| fig-align: center
 #| label: fig-enforcement
-#| fig-cap: "Total Number of Incidents Involving Enforcement Action with Racialized Breakdown"
-
+#| fig-cap: "Bar plot showing number of incidents involving enforcement action for every demographic"
+#| fig-pos: 't'
+set.seed(1)
 # Load the ggplot2 library
 library(ggplot2)
 
@@ -186,13 +198,17 @@ ggplot(
   )
 ```
 
-@fig-enforcement represents the number of enforcement action incidents recorded in 2020 for each perceived race. The graph shows that the number of incidents for White and Black individuals is the highest among the eight racial categories in general. The number of incidents for Indigenous, East/Southeast Asian  We want to examine whether disproportionate use of force against people of colour, and from this graph. This helps us see to what extent a group may be over or under-represented in uses of force.
+\newpage
+
+@fig-enforcement represents the number of enforcement action incidents recorded in 2020 for each perceived race. The graph shows that the number of incidents for White and Black individuals is the highest among the eight racial categories in general. The number of incidents for Indigenous, East/Southeast Asian. We want to examine whether disproportionate use of force against people of colour, and from this graph. This helps us see to what extent a group may be over or under-represented in uses of force.
 
 ```{r}
 #| echo: false
 #| warning: false
 #| fig-align: center
 #| label: fig-reported
+#| fig-cap: "Bar plot showing number of incidents involving use of force for every demographic"
+#| fig-pos: 't'
 
 # Load the ggplot2 library
 library(ggplot2)
@@ -216,9 +232,11 @@ ggplot(cleaned_reported_data, mapping = aes(x = Perceived_Race_of_People_Involv,
   theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), text = element_text(size = 8))
 ```
 
-@fig-reported illustrates the demographics of those involved in the enforcement of incidents in 2020. We want to examine whether disproportionate use of force against people of colour, and from this graph. The graph shows the comparison of racial breakdown, and one observation we can make is that  white individuals have significantly higher involvement compared to other groups. 
+\newpage
 
-We want to examine whether disproportionate use of force against people of colour, and from this graph. In comparison with @fig-enforcement, we can see that Black, East/Southeast Asian, Middle Eastern, and Latino people were over-represented in use of force incidents compared to their presence in reported action. Another trend we discovered characterised East/Southeast Asian and Latino people's contacts with police, in which they were under-represented in coming into contact with police but over-represented in use of force once they did.
+@fig-reported illustrates the demographics of those involved in the enforcement of incidents in 2020. We want to examine whether disproportionate use of force against people of colour, and from this graph. The graph shows the comparison of racial breakdown, and one observation we can make is that white individuals have significantly higher involvement compared to other groups. 
+
+We want to examine whether disproportionate use of force against people of colour, and from this graph. In comparison with @fig-enforcement, we can see that Black, East/Southeast Asian, Middle Eastern, and Latino people were over-represented in use of force incidents compared to their presence in reported action. Another trend we discovered characterized East/Southeast Asian and Latino people's contacts with police, in which they were under-represented in coming into contact with police but over-represented in use of force once they did.
 
 Overall, the two datasets suggest a relationship between perceived race and the use of force. The relationship between perceived race and use of force or enforcement action occurrences has been demonstrated employing our data. It is clear that the two major groups of persons engaged in the use of force event were believed to be Black and White, which may be overrepresented in the use of force. As a result, further study on racial biases is needed to reduce and ameliorate inequities that these groups may face as a result of choices to use force and the circumstances surrounding them.
 
