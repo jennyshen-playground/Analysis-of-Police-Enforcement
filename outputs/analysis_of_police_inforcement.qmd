@@ -1,11 +1,11 @@
 ---
-title: "Analysis of Police Enforcement"
+title: "Visualizing the effect of Race on Police Enforcement"
 author: "Jenny Shen"
 thanks: "Code  and data are available at https://github.com/jennyshen-playground/Analysis-of-Police-Enforcement"
 date: 'February 3, 2022'
 date-format: "D MMM YYYY"
 format: pdf
-abstract: "Police Enforcement is a vital part of crime prevention that is a key component of community mobilization and keeps the peace among the community partnerships. While police enforcement is a safe measurement for ensuring a safe community, racial profiling may occur in police interactions with racialized communities. We investigate the Use of Force Reports and occurrences that resulted in an enforcement action in relation to perceived race, which will be analyzed in this paper with the use of figures and graphs. The data show that there is a relationship between perceived race and the use of force and enforcement action incidents."
+abstract: "Police Enforcement is a vital part of crime prevention that is a key component of community mobilization and keeps the peace among the community partnerships. While police enforcement is a safe measurement for ensuring a safe community, racial profiling may occur in police interactions with racialized communities. We investigate the Use of Force Reports and occurrences that resulted in an enforcement action in relation to perceived race, which will be analyzed in this paper with the use of figures and graphs. The data show that there is a relationship between perceived race and the use of force and enforcement action incidents.As a result, further study on racial biases is needed to reduce and ameliorate inequities in the City of Toronto that these groups may face as a result of choices to use force and the circumstances surrounding them."
 editor: visual
 bibliography: bibliography.bib
 ---
